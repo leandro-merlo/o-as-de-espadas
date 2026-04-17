@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcane Technologies | O Ás de Espadas : Entre o Ás e o Valete</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./arcane-logo-only.png" type="image/png">
+
+    <style>
+        :root {
+            --rubi: #9b111e;
+            --emerald: #00c853;
+            --bg-dark: #0a0a0a;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e5e5e5;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .mono { font-family: 'Share Tech Mono', monospace; }
+
+        /* O efeito agora é uma div separada */
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 10; /* Fica acima do fundo, mas abaixo do conteúdo */
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
+        /* Garante que o conteúdo principal fique ACIMA das scanlines */
+        main, header, footer, section {
+            position: relative;
+            z-index: 20;
+        }        
+
+        /* Efeito de Scanlines (Monitor Antigo) */
+        /*body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }*/
+
+        .rubi-glow {
+            box-shadow: 0 0 15px rgba(155, 17, 30, 0.4);
+            border: 1px solid var(--rubi);
+        }
+
+        .rubi-text-glow {
+            text-shadow: 0 0 10px var(--rubi);
+        }
+
+        .btn-arcane {
+            background: linear-gradient(45deg, #7b0d18, #9b111e);
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-arcane:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+            box-shadow: 0 0 20px var(--rubi);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .animate-blink { animation: blink 1.5s infinite; }
+
+        .badge-em-breve {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background-color: var(--rubi);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            box-shadow: 0 0 10px rgba(155, 17, 30, 0.8);
+            z-index: 50;
+        }
+
+        .card-blocked {
+            filter: grayscale(1) opacity(0.6);
+            pointer-events: none; /* Impede cliques */
+            cursor: not-allowed;
+        }
+
+        .ignore-click {
+            pointer-events: none;
+            cursor: default; /* Para o cursor não virar a "mãozinha" */
+        }
+
+    </style>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wcwkhy6gzw");
+    </script>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto">
+        
+        <header class="flex flex-col md:flex-row justify-between items-center mb-12 border-b border-gray-800 pb-4">
+            <div class="flex items-center gap-4 mb-4 md:mb-0">
+                <img src="logo-arcane-peb.png" alt="Arcane Logo" class="w-12 opacity-80">
+                <span class="mono text-xs text-gray-500 uppercase tracking-widest">Systems Architect Division</span>
+            </div>
+            <div class="flex gap-6 mono text-[10px] md:text-xs">
+                <span class="text-emerald-500 animate-blink">[ ESTADO DO SISTEMA: CONEXÃO ENCRIPTADA ]</span>
+                <span class="text-red-700 rubi-text-glow">[ NÍVEL DE ACESSO: RESTRITO 5 ]</span>
+            </div>
+        </header>
+
+        <section class="rubi-glow bg-black/60 p-6 md:p-10 mb-12 relative overflow-hidden">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="relative group">
+                    <img src="capa-as-de-espadas.jpg" alt="O Ás de Espadas" class="w-full rounded shadow-2xl transition duration-500 group-hover:scale-[1.02]">
+                    <!-- <div class="absolute -bottom-4 -right-4 bg-red-900/80 px-4 py-2 text-xs font-bold border border-red-600">FRAG_MEM_#001</div> -->
+                </div>
+
+                <div class="space-y-6">
+                    <h1 class="text-5xl md:text-7xl font-bold tracking-tighter uppercase italic">O Ás de Espadas</h1>
+                    <h2 class="text-xl text-red-700 font-semibold tracking-widest uppercase">Entre o Ás e o Valete</h2>
+                    
+                    <div class="space-y-4 text-gray-400 leading-relaxed text-lg">
+                        <p><span class="text-white font-bold">Sujeito K:</span> Memória fragmentada. Reconstrução psíquica iniciada em ambiente controlado.</p>
+                        <p>Você acaba de acessar arquivos que a Arcane Technologies tentou apagar. O que você verá a seguir não pode ser desvisto.</p>
+                    </div>
+
+                    <div class="pt-8">
+                        <div class="text-emerald-500 mono text-xs mb-2 text-center md:text-left tracking-tighter">>> TRANSFERÊNCIA DE DADOS DISPONÍVEL <<</div>
+                        <a href="https://drive.google.com/file/d/1C5sjIKmehQlQMHm3SZm-gEHDOy-bTwYv/view?usp=drive_link" target="_blank" class="btn-arcane block w-full py-5 text-center text-xl font-bold uppercase tracking-widest text-white" >
+                            [ Baixar Arquivo de Degustação ]
+                        </a>
+                        <p class="text-[10px] text-gray-600 mt-3 text-center md:text-left mono">Autenticado via Carimbo Spider Hub</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h3 class="text-center text-2xl font-bold mb-8 tracking-[0.3em] text-gray-500 uppercase">Catálogo de Aquisição</h3>
+        <section class="grid md:grid-cols-3 gap-6 mb-16">
+            <div class="bg-zinc-900/50 p-4 border border-gray-800 hover:border-red-900 transition transition-all duration-300 group">
+                <img src="capa-simplex.jpg" class="w-full grayscale group-hover:grayscale-0 transition duration-500 mb-4">
+                <h4 class="text-center font-bold text-lg mb-1">Simplex</h4>
+                <p class="text-[14px] text-center text-gray-500 mb-4">Acesso básico à narrativa.</p>
+                <a href="https://loja.uiclap.com/titulo/ua160962/" target="_blank" class="block text-center border border-gray-700 py-2 text-xs hover:bg-white hover:text-black font-bold transition">COMPRAR NA UICLAP</a>
+            </div>
+
+            <div class="bg-zinc-900/50 p-4 border border-red-900/30 hover:border-red-900 transition transition-all duration-300 group relative">
+                <div class="badge-em-breve">EM BREVE</div>
+                <div class="absolute top-2 right-2 text-[8px] bg-red-900 px-2 py-0.5 animate-pulse">RECOMENDADO</div>
+                <img src="capa-deluxe.png" class="w-full mb-4">
+                <h4 class="text-center font-bold text-lg mb-1">Deluxe</h4>
+                <p class="text-[14px] text-center text-gray-500 mb-4">Diagramação especial + Conteúdo Extra.</p>
+                <a href="#" class="block text-center border border-gray-700 py-2 text-xs font-bold transition ignore-click">EM BREVE NA UICLAP</a>
+            </div>
+
+            <div class="bg-zinc-900/50 p-4 border border-gray-800 hover:border-red-900 transition transition-all duration-300 group">
+                <div class="badge-em-breve">EM BREVE</div>
+                <img src="capa-color.png" class="w-full grayscale group-hover:grayscale-0 transition duration-500 mb-4">
+                <h4 class="text-center font-bold text-lg mb-1">Deluxe Color</h4>
+                <p class="text-[14px] text-center text-gray-500 mb-4">Experiência visual definitiva em cores.</p>
+                <a href="#" class="block text-center border border-gray-700 py-2 text-xs hover:bg-white hover:text-black font-bold transition ignore-click">EM BREVE NA UICLAP</a>
+            </div>
+        </section>
+
+        <footer class="flex flex-col md:flex-row justify-between items-end gap-6 opacity-60">
+            <div class="text-[14px] mono space-y-1">
+                <p>© 2026 ARCANE TECHNOLOGIES INC.</p>
+                <p>O USO NÃO AUTORIZADO DESTE SISTEMA IMPLICARÁ EM RETALIAÇÃO E USO DA UNIDADE K.</p>
+            </div>
+            
+            <div class="bg-black border border-gray-800 p-3 w-full md:w-64 mono text-[12px] text-emerald-600 leading-tight">
+                <p>> Conexão estabelecida...</p>
+                <p>> Autenticação K-Series aceita.</p>
+                <p>> GET /as-de-espadas/degustacao.pdf</p>
+                <p>> Status: 200 OK</p>
+                <p>> Transferência concluída.</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
