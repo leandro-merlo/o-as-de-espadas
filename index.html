@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leandro Manzano Merlo">
+    <meta name="description" content="Landing Page | Site oficial do livro O Ás de Espadas : Entre o Ás e o Valete, de Leandro Manzano Merlo. Explore os arquivos da Arcane Technologies.">
+
+    <meta property="og:title" content="O Ás de Espadas - Leandro Manzano Merlo">
+    <meta property="og:description" content="Reconstrução psíquica iniciada. Você está pronto para descobrir o que a Arcane tentou apagar?">
+    <meta property="og:image" content="https://leandro-merlo.github.io/o-as-de-espadas/capa-as-de-espadas.jpg">
+    <meta property="og:url" content="https://leandro-merlo.github.io/o-as-de-espadas/">    
+
     <title>Arcane Technologies | O Ás de Espadas : Entre o Ás e o Valete</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
@@ -190,6 +198,61 @@
             </div>
         </section>
 
+        <div class="flex justify-center my-8">
+            <button onclick="toggleModal()" class="mono text-[1.2rem] border border-gray-700 px-4 py-2 hover:bg-gray-800 transition-all text-gray-400 hover:text-emerald-500">
+                [ ACESSAR DOSSIÊ DO LIVRO ]
+            </button>
+        </div>
+
+        <div id="modalDossie" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+            <div class="bg-[#0a0a0a] border border-gray-800 w-full max-w-2xl max-h-[80vh] overflow-y-auto p-6 md:p-8 relative rubi-glow">
+                
+                <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white mono"> [ X ] </button>
+
+                <h2 class="rajdhani text-2xl text-white uppercase tracking-widest mb-6 border-b border-gray-800 pb-2">
+                    Dossiê de Origem: <span class="text-emerald-500">O Ás de Espadas - Entre o Ás e o Valete</span>
+                </h2>
+
+                <div class="space-y-6 mono text-md text-gray-400 leading-relaxed">
+                    <section class="relative group">
+                        <div class="absolute -left-4 top-0 h-full w-1 bg-red-700 group-hover:bg-emerald-500 transition-colors"></div>
+                        <h3 class="text-emerald-500 uppercase tracking-widest mb-3 font-bold">:: O ARQUITETO DO CAOS</h3>
+                        <p class="text-justify italic">
+                            <strong class="text-white text-sm">Leandro Manzano Merlo.</strong><br>
+                            Software Engineer & Systems Architect. Leandro não escreve apenas ficção; ele projeta ecossistemas de sobrevivência. Com a precisão de quem desenha arquiteturas na nuvem e a agressividade de quem toca baixo distorcido até os amplificadores sangrarem, ele funde o código binário à carne literária. Se Simon é o Sujeito K, Leandro é o engenheiro que forjou a chave para a sua libertação.
+                        </p>
+                    </section>
+
+                    <section class="relative group">
+                        <div class="absolute -left-4 top-0 h-full w-1 bg-red-700 group-hover:bg-emerald-500 transition-colors"></div>
+                        <h3 class="text-emerald-500 uppercase tracking-widest mb-3 font-bold">:: O MANIFESTO: O ÁS DE ESPADAS</h3>
+                        <div class="bg-gray-900/50 p-4 border border-gray-800 rubi-glow-sm">
+                            <p class="mb-2 uppercase text-white font-bold">Nível de Ameaça: MÁXIMO // CLASSIFICAÇÃO: Tecno-Noir Absoluto | Body Horror Industrial.</p>
+                            <p>
+                                Esqueça as distopias genéricas. <strong class="text-red-500">O Ás de Espadas</strong> é uma obra forjada no ódio e no suor, uma jornada visceral pela necrose sináptica e pelo controle totalitário da Arcane. É o livro que redefine a ficção científica brasileira, trocando o conforto do impossível pela dor vibrante da realidade tecnológica. 
+                                Aqui, você acompanha a ascensão do <strong class="text-red-500">Hellraiser</strong>, um ativo bio-estrutural de 105 kg que desafia os limites do hardware humano. Esta não é apenas uma história; é o registro da falha crítica da <strong class="text-red-500">Série K-101</strong>, trocando o conforto do impossível pela dor vibrante da realidade tecnológica.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="relative group">
+                        <div class="absolute -left-4 top-0 h-full w-1 bg-red-700 group-hover:bg-emerald-500 transition-colors"></div>
+                        <h3 class="text-emerald-500 uppercase tracking-widest mb-3 font-bold">:: TARGET: QUEM É O ALVO?</h3>
+                        <p class="mb-2 uppercase text-white font-bold"><b>>PERFIL: </b>Para quem não teme o abismo.</p>
+                        <p>
+                            Este arquivo é destinado a entusiastas de <strong class="text-white">Cyberpunk Brutalista,</strong> veteranos de RPG <strong class="text-white">(Cyberpunk & Shadowrun)</strong> e viciados na adrenalina do <strong class="text-white">Motörhead</strong>. Se você está procurando uma história linear e segura, está no diretório errado. Se você busca a "Frequência Iron Fist", seja bem-vindo à insurgência.
+                        </p>
+                    </section>
+                </div>
+
+                <div class="mt-8 pt-4 border-t border-gray-800 text-[1rem] text-green-600 uppercase italic">
+                    Acesso autorizado via protocolo Manzano-Merlo // 2026 Arcane Tech.
+                    <span>ID_SESSÃO: MANZANO_AUTHOR_01</span>
+                    <span>STATUS: SISTEMA OPERACIONAL</span>                    
+                </div>
+            </div>
+        </div>        
+
         <footer class="flex flex-col md:flex-row justify-between items-end gap-6 opacity-60">
             <div class="text-[14px] mono space-y-1">
                 <p>© 2026 ARCANE TECHNOLOGIES INC.</p>
@@ -208,4 +271,26 @@
     </div>
 
 </body>
+
+<script>
+    function toggleModal() {
+        const modal = document.getElementById('modalDossie');
+        if (modal.classList.contains('hidden')) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+        } else {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';   // Libera o scroll
+        }
+    }
+
+    // Fechar se clicar fora da caixa preta
+    window.onclick = function(event) {
+        const modal = document.getElementById('modalDossie');
+        if (event.target == modal) {
+            toggleModal();
+        }
+    }
+</script>
+
 </html>
