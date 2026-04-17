@@ -24,35 +24,22 @@
 
         .mono { font-family: 'Share Tech Mono', monospace; }
 
-        /* O efeito agora é uma div separada */
+        /* Camada de Scanlines isolada */
         .scanlines {
             position: fixed;
             top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
                         linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 10; /* Fica acima do fundo, mas abaixo do conteúdo */
+            z-index: 10;
             background-size: 100% 4px, 3px 100%;
             pointer-events: none;
         }
 
-        /* Garante que o conteúdo principal fique ACIMA das scanlines */
+        /* Conteúdo acima das scanlines */
         main, header, footer, section {
             position: relative;
             z-index: 20;
         }        
-
-        /* Efeito de Scanlines (Monitor Antigo) */
-        /*body::before {
-            content: " ";
-            display: block;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 9999;
-            background-size: 100% 4px, 3px 100%;
-            pointer-events: none;
-        }*/
 
         .rubi-glow {
             box-shadow: 0 0 15px rgba(155, 17, 30, 0.4);
@@ -86,10 +73,12 @@
             position: absolute;
             top: 20px;
             right: -35px;
+            width: 140px;
             background-color: var(--rubi);
             color: white;
-            padding: 5px 40px;
+            padding: 5px 0;
             transform: rotate(45deg);
+            text-align: center;
             font-weight: bold;
             font-size: 0.7rem;
             letter-spacing: 2px;
@@ -99,16 +88,17 @@
 
         .card-blocked {
             filter: grayscale(1) opacity(0.6);
-            pointer-events: none; /* Impede cliques */
+            pointer-events: none;
             cursor: not-allowed;
         }
 
         .ignore-click {
             pointer-events: none;
-            cursor: default; /* Para o cursor não virar a "mãozinha" */
+            cursor: default;
         }
 
     </style>
+
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -118,6 +108,8 @@
     </script>
 </head>
 <body class="p-4 md:p-8">
+
+    <div class="scanlines"></div>
 
     <div class="max-w-5xl mx-auto">
         
@@ -136,7 +128,6 @@
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <div class="relative group">
                     <img src="capa-as-de-espadas.jpg" alt="O Ás de Espadas" class="w-full rounded shadow-2xl transition duration-500 group-hover:scale-[1.02]">
-                    <!-- <div class="absolute -bottom-4 -right-4 bg-red-900/80 px-4 py-2 text-xs font-bold border border-red-600">FRAG_MEM_#001</div> -->
                 </div>
 
                 <div class="space-y-6">
@@ -150,7 +141,7 @@
 
                     <div class="pt-8">
                         <div class="text-emerald-500 mono text-xs mb-2 text-center md:text-left tracking-tighter">>> TRANSFERÊNCIA DE DADOS DISPONÍVEL <<</div>
-                        <a href="https://drive.google.com/file/d/1C5sjIKmehQlQMHm3SZm-gEHDOy-bTwYv/view?usp=drive_link" target="_blank" class="btn-arcane block w-full py-5 text-center text-xl font-bold uppercase tracking-widest text-white" >
+                        <a href="https://drive.google.com/file/d/1C5sjIKmehQlQMHm3SZm-gEHDOy-bTwYv/view?usp=drive_link" target="_blank" class="btn-arcane block w-full py-5 text-center text-[0.8rem] font-bold uppercase tracking-widest text-white" >
                             [ Baixar Arquivo de Degustação ]
                         </a>
                         <p class="text-[10px] text-gray-600 mt-3 text-center md:text-left mono">Autenticado via Carimbo Spider Hub</p>
@@ -160,24 +151,25 @@
         </section>
 
         <h3 class="text-center text-2xl font-bold mb-8 tracking-[0.3em] text-gray-500 uppercase">Catálogo de Aquisição</h3>
+        
         <section class="grid md:grid-cols-3 gap-6 mb-16">
-            <div class="bg-zinc-900/50 p-4 border border-gray-800 hover:border-red-900 transition transition-all duration-300 group">
+            <div class="bg-zinc-900/50 p-4 border border-gray-800 hover:border-red-900 transition transition-all duration-300 group relative overflow-hidden">
                 <img src="capa-simplex.jpg" class="w-full grayscale group-hover:grayscale-0 transition duration-500 mb-4">
                 <h4 class="text-center font-bold text-lg mb-1">Simplex</h4>
                 <p class="text-[14px] text-center text-gray-500 mb-4">Acesso básico à narrativa.</p>
                 <a href="https://loja.uiclap.com/titulo/ua160962/" target="_blank" class="block text-center border border-gray-700 py-2 text-xs hover:bg-white hover:text-black font-bold transition">COMPRAR NA UICLAP</a>
             </div>
 
-            <div class="bg-zinc-900/50 p-4 border border-red-900/30 hover:border-red-900 transition transition-all duration-300 group relative">
+            <div class="bg-zinc-900/50 p-4 border border-red-900/30 hover:border-red-900 transition transition-all duration-300 group relative overflow-hidden">
                 <div class="badge-em-breve">EM BREVE</div>
-                <div class="absolute top-2 right-2 text-[8px] bg-red-900 px-2 py-0.5 animate-pulse">RECOMENDADO</div>
+                <div class="absolute top-2 left-2 text-[8px] bg-red-900 px-2 py-0.5 animate-pulse z-20">RECOMENDADO</div>
                 <img src="capa-deluxe.png" class="w-full mb-4">
                 <h4 class="text-center font-bold text-lg mb-1">Deluxe</h4>
                 <p class="text-[14px] text-center text-gray-500 mb-4">Diagramação especial + Conteúdo Extra.</p>
                 <a href="#" class="block text-center border border-gray-700 py-2 text-xs font-bold transition ignore-click">EM BREVE NA UICLAP</a>
             </div>
 
-            <div class="bg-zinc-900/50 p-4 border border-gray-800 hover:border-red-900 transition transition-all duration-300 group">
+            <div class="bg-zinc-900/50 p-4 border border-gray-800 hover:border-red-900 transition transition-all duration-300 group relative overflow-hidden">
                 <div class="badge-em-breve">EM BREVE</div>
                 <img src="capa-color.png" class="w-full grayscale group-hover:grayscale-0 transition duration-500 mb-4">
                 <h4 class="text-center font-bold text-lg mb-1">Deluxe Color</h4>
