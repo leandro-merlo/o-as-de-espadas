@@ -54,6 +54,7 @@
             background: linear-gradient(45deg, #7b0d18, #9b111e);
             clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
             transition: all 0.3s ease;
+            font-size: 1.2rem;
         }
 
         .btn-arcane:hover {
@@ -97,6 +98,17 @@
             cursor: default;
         }
 
+        @media (max-width: 767px) {
+            .blink-text {
+                display: block !important;
+                text-align: center;
+            }
+
+            .btn-arcane {
+                font-size: 0.7rem;
+            }
+        }        
+
     </style>
 
     <script type="text/javascript">
@@ -118,9 +130,9 @@
                 <img src="logo-arcane-peb.png" alt="Arcane Logo" class="w-12 opacity-80">
                 <span class="mono text-xs text-gray-500 uppercase tracking-widest">Systems Architect Division</span>
             </div>
-            <div class="flex gap-6 mono text-[10px] md:text-xs">
-                <span class="text-emerald-500 animate-blink">[ ESTADO DO SISTEMA: CONEXÃO ENCRIPTADA ]</span>
-                <span class="text-red-700 rubi-text-glow">[ NÍVEL DE ACESSO: RESTRITO 5 ]</span>
+            <div class="blink-text flex gap-6 mono text-[10px] md:text-xs">
+                <span class="blink-text text-emerald-500 animate-blink">[ ESTADO DO SISTEMA: CONEXÃO ENCRIPTADA ]</span>
+                <span class="blink-text text-red-700 rubi-text-glow">[ NÍVEL DE ACESSO: RESTRITO 5 ]</span>
             </div>
         </header>
 
@@ -141,7 +153,7 @@
 
                     <div class="pt-8">
                         <div class="text-emerald-500 mono text-xs mb-2 text-center md:text-left tracking-tighter">>> TRANSFERÊNCIA DE DADOS DISPONÍVEL <<</div>
-                        <a href="https://drive.google.com/file/d/1C5sjIKmehQlQMHm3SZm-gEHDOy-bTwYv/view?usp=drive_link" target="_blank" class="btn-arcane block w-full py-5 text-center text-[0.8rem] font-bold uppercase tracking-widest text-white" >
+                        <a href="https://drive.google.com/file/d/1C5sjIKmehQlQMHm3SZm-gEHDOy-bTwYv/view?usp=drive_link" target="_blank" class="btn-arcane block w-full py-5 text-center font-bold uppercase tracking-widest text-white" >
                             [ Baixar Arquivo de Degustação ]
                         </a>
                         <p class="text-[10px] text-gray-600 mt-3 text-center md:text-left mono">Autenticado via Carimbo Spider Hub</p>
