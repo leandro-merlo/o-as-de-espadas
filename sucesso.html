@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinal Estabelecido | Arcane Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rubi: #9b111e;
+            --emerald: #00c853;
+            --bg-dark: #0a0a0a;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: #e5e5e5;
+            font-family: 'Rajdhani', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .mono { font-family: 'Share Tech Mono', monospace; }
+        
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 10;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .rubi-glow {
+            box-shadow: 0 0 20px rgba(155, 17, 30, 0.4);
+            border: 1px solid var(--rubi);
+        }
+
+        /* Barra de progresso do redirecionamento */
+        .progress-bar {
+            height: 2px;
+            background-color: var(--rubi);
+            width: 100%;
+            transform-origin: left;
+            animation: shrink 10s linear forwards;
+        }
+
+        @keyframes shrink {
+            from { transform: scaleX(1); }
+            to { transform: scaleX(0); }
+        }
+
+        .btn-arcane {
+            background: linear-gradient(45deg, #7b0d18, #9b111e);
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-arcane:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+            box-shadow: 0 0 20px var(--rubi);
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+
+    <main class="z-20 w-full max-w-lg p-8 mx-4 bg-black/60 rubi-glow text-center relative">
+        <div class="mb-6">
+            <span class="text-emerald-500 mono text-sm animate-pulse">[ CONEXÃO ESTABELECIDA ]</span>
+            <h1 class="text-4xl font-bold uppercase tracking-tighter mt-2 italic text-white">Sinal Captado</h1>
+        </div>
+
+        <div class="space-y-4 mb-8">
+            <p class="text-gray-400 text-lg leading-relaxed font-mono">
+                Os arquivos da <span class="text-red-600">Série K-101</span> foram encriptados e enviados para a sua frequência (e-mail).
+            </p>
+            <p class="text-zinc-500 text-sm italic">
+                Verifique sua caixa de entrada e spam. O Simon não gosta de esperar.
+            </p>
+        </div>
+
+        <div class="space-y-6">
+            <a href="index.html" class="btn-arcane block w-full py-4 text-center font-bold uppercase tracking-widest text-white text-sm">
+                [ VOLTAR AO TERMINAL PRINCIPAL ]
+            </a>
+
+            <div class="pt-4">
+                <p class="text-[10px] text-zinc-600 mb-2 mono uppercase tracking-widest">
+                    Redirecionamento automático em <span id="timer">10</span>s
+                </p>
+                <div class="w-full bg-zinc-900 h-[2px]">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-2 right-4 opacity-20 mono text-[8px] pointer-events-none uppercase">
+            ID_SESSION: SUCCESS_K101
+        </div>
+    </main>
+
+    <script>
+        let seconds = 10;
+        const timerElement = document.getElementById('timer');
+        const homeUrl = 'index.html'; // Altere para a URL real se necessário
+
+        const countdown = setInterval(() => {
+            seconds--;
+            timerElement.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                window.location.href = homeUrl;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -161,9 +161,12 @@
 
                     <div class="pt-8">
                         <div class="text-emerald-500 mono text-xs mb-2 text-center md:text-left tracking-tighter">>> TRANSFERÊNCIA DE DADOS DISPONÍVEL <<</div>
-                        <a href="https://drive.google.com/file/d/1C5sjIKmehQlQMHm3SZm-gEHDOy-bTwYv/view?usp=drive_link" target="_blank" class="btn-arcane block w-full py-5 text-center font-bold uppercase tracking-widest text-white" >
+                        <button onclick="toggleModalDownload()" class="btn-arcane block w-full py-5 text-center font-bold uppercase tracking-widest text-white">
                             [ Baixar Arquivo de Degustação ]
-                        </a>
+                        </button>
+                        <!-- <a href="https://drive.google.com/file/d/1C5sjIKmehQlQMHm3SZm-gEHDOy-bTwYv/view?usp=drive_link" target="_blank" class="btn-arcane block w-full py-5 text-center font-bold uppercase tracking-widest text-white" >
+                            [ Baixar Arquivo de Degustação ]
+                        </a> -->
                         <p class="text-[10px] text-gray-600 mt-3 text-center md:text-left mono">Autenticado via Carimbo Spider Hub</p>
                     </div>
                 </div>
@@ -271,9 +274,84 @@
 
     </div>
 
+    <div id="modalDownload" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4 bg-black/95 backdrop-blur-md">
+    <div class="bg-[#0a0a0a] border-2 border-red-900 w-full max-w-md p-8 relative rubi-glow">
+        
+        <button onclick="toggleModalDownload()" class="absolute top-4 right-4 text-gray-500 hover:text-white mono"> [ X ] </button>
+
+        <h2 class="mono text-red-600 text-xl mb-6 uppercase tracking-tighter italic border-b border-red-900/30 pb-2">
+            // PROTOCOLO_DE_TRANSFERENCIA.EXE
+        </h2>
+
+        <p class="text-gray-400 font-sans text-lg mb-6">
+            O acesso aos arquivos referentes ao projeto Série K-101 requer identificação de rede. 
+            Insira seu e-mail para descriptografar o link de download.
+            A Arcane não reconhece o anonimato. O sistema de segurança é implacável. O link será enviado via rede segura após a confirmação.
+        </p>
+
+        <form method="POST" action="https://e7b05680.sibforms.com/serve/MUIFAFoWFCkLpDuOpt8B0uiBTIyK7M04tfBhiRbpWiBVNx33dO59eSxerHqw6e5x9kCQywmT3Man4ULcBgBDXvjw1HDLQZkt26y4LqixYRrF9RZMFBayraG55eC_Lj4546BC9Av98gjCIZ4ncFoegFv-vc7-jeXT6_dMSL5qHXKMTl4blVXoeHjvTLcL2-_C1sowfM-JCS9y9D-uYA==">
+            
+            <div class="space-y-4">
+                <input type="email" id="EMAIL" name="EMAIL" autocomplete="off" required
+                    placeholder="SEU_EMAIL@RESTRICTED.COM" spellcheck="false"
+                    class="w-full bg-gray-900 border border-zinc-800 text-red-500 p-4 font-mono text-sm focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all"
+                />
+                
+                <button type="submit" 
+                    class="w-full bg-red-900 hover:bg-red-700 text-gray font-bold py-4 px-6 transition-all duration-300 uppercase tracking-widest font-mono text-sm shadow-[0_0_15px_rgba(155,17,30,0.5)]">
+                    [ REQUISITAR ACESSO ]
+                </button>
+            </div>
+
+            <input type="text" name="email_address_check" value="" class="hidden">
+            <input type="hidden" name="locale" value="pt">
+            <input type="hidden" name="html_type" value="simple">
+        </form>
+
+        <p class="text-[10px] text-white-600 mt-6 font-mono leading-tight text-center">
+            * O link será enviado via rede segura após a confirmação.
+        </p>
+        <div id="error-message" class="hidden mt-2 p-2 bg-red-900/20 border border-red-600 text-red-500 font-mono text-[10px] uppercase">
+            Falha na autenticação. Verifique as coordenadas de rede.
+        </div>
+
+    </div>
+</div>
 </body>
 
 <script>
+
+    // Script para tratar o feedback do Brevo sem sair da página se houver erro
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function() {
+        const btn = document.getElementById('submitBtn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "[ PROCESSANDO... ]";
+        btn.classList.add('animate-pulse');
+        btn.disabled = true;
+
+        // Se em 8 segundos não redirecionar, libera o botão (timeout de segurança)
+        setTimeout(() => {
+            if(btn.innerHTML === "[ PROCESSANDO... ]") {
+                btn.innerHTML = originalText;
+                btn.classList.remove('animate-pulse');
+                btn.disabled = false;
+                document.getElementById('error-message').classList.remove('hidden');
+            }
+        }, 8000);
+    });
+
+    function toggleModalDownload() {
+        const modal = document.getElementById('modalDownload');
+        if (modal.classList.contains('hidden')) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        } else {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    }
+    
     function toggleModal() {
         const modal = document.getElementById('modalDossie');
         if (modal.classList.contains('hidden')) {
@@ -288,9 +366,9 @@
     // Fechar se clicar fora da caixa preta
     window.onclick = function(event) {
         const modal = document.getElementById('modalDossie');
-        if (event.target == modal) {
-            toggleModal();
-        }
+        const modalDownload = document.getElementById('modalDownload');
+        if (event.target == modal) toggleModal();
+        if (event.target == modalDownload) toggleModalDownload();
     }
 </script>
 
