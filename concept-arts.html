@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcane Lore Access | O Ás de Espadas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rubi: #9b111e;
+            --emerald: #00c853;
+            --bg-dark: #0a0a0a;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e5e5e5;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .mono { font-family: 'Share Tech Mono', monospace; }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 10;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
+        main { position: relative; z-index: 20; }
+
+        .rubi-glow {
+            box-shadow: 0 0 15px rgba(155, 17, 30, 0.3);
+            border: 1px solid rgba(155, 17, 30, 0.5);
+        }
+
+        .emerald-glow {
+            box-shadow: 0 0 15px rgba(0, 200, 83, 0.2);
+            border: 1px solid var(--emerald);
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2300c853'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.5em;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="scanlines"></div>
+
+    <main class="max-w-5xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-center mb-8 border-b border-gray-800 pb-6 gap-4">
+            <div class="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start">
+                <img src="logo-arcane-peb.png" alt="Arcane Logo" class="w-8 md:w-10 opacity-50">
+                <h1 class="mono text-emerald-500 text-lg md:text-xl tracking-tighter uppercase font-bold italic">
+                    // Arquivos_de_Inteligencia.exe
+                </h1>
+            </div>
+            
+            <a href="index.html" class="mono text-[10px] md:text-xs border border-gray-700 px-6 py-3 md:py-2 hover:bg-white hover:text-black transition-all font-bold w-full md:w-auto text-center rubi-glow-sm">
+                [ << VOLTAR PARA TERMINAL PRINCIPAL ]
+            </a>
+        </header>
+
+        <section class="mb-16">
+            <div class="flex items-center gap-2 mb-4">
+                <div class="w-2 h-2 bg-red-600 animate-pulse"></div>
+                <h3 class="mono text-xs text-red-600 uppercase tracking-[0.2em]">Próxima Descriptografia em: 05 Unidades Vendidas</h3>
+            </div>
+            
+            <div class="rubi-glow bg-black/40 p-4 md:p-8 grid md:grid-cols-2 gap-8 items-center relative overflow-hidden">
+                <div class="relative group cursor-not-allowed">
+                    <img src="assets/membro-fundador/proxima-arte-blur.jpg" alt="Locked Asset" class="w-full grayscale opacity-70 transition duration-1000">
+                    <div class="absolute inset-0 flex flex-col items-center justify-center space-y-4">
+                        <div class="glass-effect p-4 border border-red-900/50 text-center">
+                            <span class="mono text-red-600 text-lg font-bold tracking-widest block mb-2">ACESSO NEGADO</span>
+                            <span class="mono text-[10px] text-gray-500 uppercase">Aguardando Validação de Vendas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <span class="mono text-[10px] text-gray-600 uppercase tracking-widest">Alvo Detectado:</span>
+                        <h2 class="text-4xl font-bold uppercase italic tracking-tighter text-white">Simon Lopez D'Ávila</h2>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed italic">
+                        "Houve um tempo em que eu acreditava que a justiça era cega e as leis eram sagradas. Hoje eu sei que a justiça é um software com o preço de mercado e as leis são apenas as cercas que os donos do mundo usam para nos manter no curral."
+                    </p>
+                    <div class="bg-zinc-900/50 p-4 border-l-2 border-red-900">
+                        <p class="mono text-[10px] text-red-700">>> STATUS DO DOWNLOAD: 0% CONCLUÍDO</p>
+                        <div class="w-full bg-gray-800 h-1 mt-2">
+                            <div class="bg-red-700 h-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-8 pb-20">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-800 pb-6">
+                <div>
+                    <h3 class="text-2xl font-bold uppercase tracking-widest text-emerald-500">Arquivos Liberados</h3>
+                    <p class="mono text-[10px] text-gray-500 uppercase">Selecione um registro para visualizar os dados de lore.</p>
+                </div>
+                
+                <select id="artSelector" onchange="updateDisplay()" 
+                        class="bg-zinc-900 border border-emerald-900/50 text-emerald-500 p-3 mono text-sm focus:emerald-glow outline-none w-full md:w-80 cursor-pointer">
+                    <option value="art1">Simon / Tribunal (Wallpaper 4K)</option>
+                </select>
+            </div>
+
+            <div id="displayContainer" class="emerald-glow bg-zinc-900/10 p-6 md:p-10 flex flex-col items-center transition-all duration-500">
+                <div class="mb-10 relative group">
+                    <img id="mainArtImg" src="" alt="Lore Art" 
+                         class="max-w-full h-auto shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-gray-800 transition duration-500 group-hover:border-emerald-500">
+                </div>
+
+                <div class="w-full max-w-3xl space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="h-px bg-emerald-500 flex-grow"></div>
+                        <h4 id="artTitle" class="text-3xl font-bold text-white uppercase italic tracking-tighter">
+                        </h4>
+                        <div class="h-px bg-emerald-500 flex-grow"></div>
+                    </div>
+                    
+                    <div class="bg-black/60 p-6 border-r-4 border-emerald-500 text-right">
+                        <p id="artDesc" class="mono text-gray-400 text-sm leading-relaxed">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-10 opacity-30 mono text-[10px] tracking-[0.5em] uppercase">
+            Série K-101 // Acesso Autorizado Manzano-Merlo // 2026
+        </footer>
+    </main>
+
+    <script>
+        // Objeto com os dados das artes liberadas
+        const loreLibrary = {
+            art1: {
+                title: "Wallpaper - Simon - Tribunal Arcane",
+                desc: "Wallpaper 4K liberado após as primeiras 5 vendas. O registro visual da calma antes da quebra da realidade jurídica na Arcane Technologies.",
+                img: "assets/membro-fundador/wallpaper-simon-low.jpg"
+            }
+        };
+
+        function updateDisplay() {
+            const selector = document.getElementById('artSelector');
+            const data = loreLibrary[selector.value];
+            
+            const container = document.getElementById('displayContainer');
+            const img = document.getElementById('mainArtImg');
+            const title = document.getElementById('artTitle');
+            const desc = document.getElementById('artDesc');
+
+            // Efeito sutil de fade
+            container.style.opacity = '0';
+            
+            setTimeout(() => {
+                img.src = data.img;
+                title.innerText = data.title;
+                desc.innerText = data.desc;
+                container.style.opacity = '1';
+            }, 300);
+        }
+
+        // Inicia a página com a última arte liberada (art3)
+        window.onload = updateDisplay;
+    </script>
+</body>
+</html>
